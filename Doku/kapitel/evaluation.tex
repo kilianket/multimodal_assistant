@@ -1,0 +1,59 @@
+\chapter{Evaluation}
+\label{sec:evaluation}
+
+\section{Testumgebung und Datensätze}
+Die Evaluation des \textit{multimodalen Sprach-Assistenten} erfolgte auf einem lokalen Entwicklungsrechner unter macOS sowie innerhalb einer isolierten Python-Umgebung (venv).
+
+Zur funktionalen Überprüfung des Systems wurden verschiedene Sprach- und Texteingaben verwendet, die unterschiedliche linguistische Strukturen abbilden. Diese umfassen einfache Sätze, komplexe Mehrsatzstrukturen sowie handlungsorientierte Beschreibungen, um die Robustheit der NLP-Pipeline zu testen.
+
+\section{Performance-Analyse}
+
+\subsection{Speech-to-Text (Whisper)}
+Die Spracherkennung mittels OpenAI Whisper zeigte eine hohe Genauigkeit bei klar gesprochenen Eingaben.
+
+\begin{itemize}
+    \item Gute Erkennungsrate bei deutschen Standardsätzen
+    \item Leichte Genauigkeitsverluste bei stark verrauschten Audioeingaben
+    \item Transkriptionszeit abhängig von Modellgröße (base vs. small)
+\end{itemize}
+
+Die Verarbeitung erfolgt nahezu in Echtzeit für kurze Audiosequenzen, wodurch eine interaktive Nutzung ermöglicht wird.
+
+\subsection{Natural Language Processing (spaCy)}
+Die linguistische Analyse durch spaCy liefert stabile Ergebnisse im Bereich Tokenisierung und Part-of-Speech Tagging.
+
+\begin{itemize}
+    \item Verben werden zuverlässig als Handlungen erkannt
+    \item Nomen werden konsistent als Objekte extrahiert
+    \item Satzstruktur bleibt auch bei längeren Eingaben stabil analysierbar
+\end{itemize}
+
+Die Performance der NLP-Komponente ist unabhängig von der Eingabelänge für typische Nutzungsszenarien ausreichend.
+
+\subsection{Bildgenerierung und semantische Abbildung}
+Die semantische Umwandlung von Sprache in visuelle Inhalte erfolgt über die Extraktion von Nomen, welche als Suchbegriffe für eine Bilddatenquelle verwendet werden.
+
+\begin{itemize}
+    \item Hohe Relevanz bei einfachen Objektbegriffen (z.B. "Hund", "Park")
+    \item Eingeschränkte Genauigkeit bei abstrakten Begriffen
+    \item Schnelle Bildauslieferung über externe API (Unsplash)
+\end{itemize}
+
+\section{Funktionale Ergebnisse}
+
+Die funktionale Evaluation des Gesamtsystems ergab folgende Erkenntnisse:
+
+\begin{itemize}
+    \item \textbf{End-to-End Pipeline:} Die vollständige Verarbeitungskette (Audio $\rightarrow$ Text $\rightarrow$ NLP $\rightarrow$ Bild) funktioniert stabil und ohne manuelle Eingriffe.
+    
+    \item \textbf{Textvisualisierung:} Die Hervorhebung von Verben im Text verbessert die Nachvollziehbarkeit der linguistischen Analyse deutlich.
+
+    \item \textbf{Interaktive Nutzung:} Die Streamlit-Oberfläche ermöglicht eine einfache Bedienung und unmittelbare Rückmeldung der KI-Ergebnisse.
+
+    \item \textbf{Robustheit:} Das System bleibt auch bei fehlerhaften oder unvollständigen Eingaben stabil und liefert interpretierbare Ergebnisse.
+\end{itemize}
+
+\section{Zusammenfassende Beurteilung}
+Die Evaluation zeigt, dass der entwickelte multimodale Sprach-Assistent die definierten Anforderungen erfüllt. Besonders hervorzuheben ist die erfolgreiche Kombination aus Spracherkennung, linguistischer Analyse und visueller Repräsentation.
+
+Die modulare Architektur erlaubt eine einfache Erweiterung des Systems, beispielsweise durch den Einsatz leistungsfähigerer Sprachmodelle oder generativer Bild-KI. Insgesamt stellt das Projekt eine funktionale KI-Pipeline dar, die Sprache in strukturierte und visuell interpretierbare Informationen überführt.

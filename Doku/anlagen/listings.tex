@@ -1,0 +1,158 @@
+%% ===============================
+%% anlagen/listings.tex
+%% Quellcode-Auszüge: Multimodaler Sprach-Assistent
+%% ===============================
+
+% WICHTIG:
+% KEIN \chapter hier! Wird in der Hauptdatei definiert.
+
+% ===============================
+% Listings Setup für Python
+% ===============================
+
+\lstdefinelanguage{Python}{
+    morekeywords={as,assert,break,class,continue,def,del,elif,else,except,False,finally,for,from,global,if,import,in,is,lambda,None,nonlocal,not,or,pass,raise,return,True,try,while,with,yield},
+    sensitive=true,
+    morecomment=[l]{\#},
+    morestring=[b]',
+    morestring=[b]"
+}
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    frame=single,
+    rulecolor=\color{black!30},
+    backgroundcolor=\color{white!97!gray},
+    breaklines=true,
+    captionpos=b,
+    commentstyle=\color{green!50!black},
+    keywordstyle=\color{blue},
+    stringstyle=\color{orange}
+}
+
+% ===============================
+% Speech-to-Text (Whisper)
+% ===============================
+\section{Speech-to-Text (Whisper)}
+
+Die folgende Implementierung zeigt die erste Stufe der Pipeline, in der gesprochene Sprache mithilfe des Whisper-Modells in Text transformiert wird.
+
+\begin{lstlisting}[caption={speech_to_text.py – Audio-Transkription mittels Whisper}]
+import whisper
+import tempfile
+
+model = whisper.load_model("base")
+
+def transcribe_audio(uploaded_file):
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
+        tmp.write(uploaded_file.read())
+        tmp_path = tmp.name
+
+    result = model.transcribe(tmp_path)
+    return result["text"]
+\end{lstlisting}
+
+% ===============================
+% NLP Analyse (spaCy)
+% ===============================
+\section{Natural Language Processing}
+
+In diesem Schritt erfolgt die linguistische Analyse des transkribierten Textes mithilfe von spaCy. Der Text wird tokenisiert und grammatikalisch annotiert.
+
+\begin{lstlisting}[caption={nlp_analysis.py – Tokenisierung und Part-of-Speech Tagging}]
+import spacy
+
+nlp = spacy.load("de_core_news_sm")
+
+def analyze(text):
+    doc = nlp(text)
+
+    tokens = [{"text": t.text, "pos": t.pos_} for t in doc]
+    verbs = [t.text for t in doc if t.pos_ == "VERB"]
+    nouns = [t.text for t in doc if t.pos_ == "NOUN"]
+
+    return {
+        "tokens": tokens,
+        "verbs": verbs,
+        "nouns": nouns
+    }
+\end{lstlisting}
+
+% ===============================
+% Text-Visualisierung (Verben markieren)
+% ===============================
+\section{Textvisualisierung}
+
+Zur Verbesserung der Interpretierbarkeit werden erkannte Verben im Text visuell hervorgehoben.
+
+\begin{lstlisting}[caption={nlp_analysis.py – Markierung von Verben im Text}]
+def highlight_verbs(text):
+    doc = nlp(text)
+    out = []
+
+    for token in doc:
+        if token.pos_ == "VERB":
+            out.append(f"<mark>{token.text}</mark>")
+        else:
+            out.append(token.text)
+
+    return " ".join(out)
+\end{lstlisting}
+
+% ===============================
+% Bildgenerierung
+% ===============================
+\section{Visuelle Ausgabe (Bildsuche)}
+
+Die extrahierten Nomen werden als semantische Suchbegriffe verwendet, um passende Bilder aus einer externen Bildquelle abzurufen.
+
+\begin{lstlisting}[caption={image_generator.py – Generierung semantischer Bildabfragen}]
+import requests
+
+def get_image_from_nouns(query):
+    url = f"https://source.unsplash.com/800x600/?{query}"
+    return url
+\end{lstlisting}
+
+% ===============================
+% Streamlit Anwendung (Pipeline-Orchestrierung)
+% ===============================
+\section{Streamlit Anwendung}
+
+Dieses Listing zeigt die vollständige Orchestrierung der KI-Pipeline innerhalb einer interaktiven Webanwendung.
+
+\begin{lstlisting}[caption={app.py – Gesamtpipeline des multimodalen Systems}]
+import streamlit as st
+from speech_to_text import transcribe_audio
+from nlp_analysis import analyze, highlight_verbs
+from image_generator import get_image_from_nouns
+
+st.title("Multimodaler Sprach-Assistent")
+
+mode = st.radio("Eingabemodus", ["Text", "Audio"])
+text = ""
+
+if mode == "Text":
+    text = st.text_input("Eingabe")
+else:
+    audio = st.file_uploader("Audio hochladen")
+    if audio:
+        text = transcribe_audio(audio)
+
+if text:
+    st.subheader("Linguistische Analyse")
+    result = analyze(text)
+    st.json(result)
+
+    st.subheader("Verben hervorgehoben")
+    st.markdown(highlight_verbs(text), unsafe_allow_html=True)
+
+    if result["nouns"]:
+        query = " ".join(result["nouns"][:3])
+        st.image(get_image_from_nouns(query))
+\end{lstlisting}

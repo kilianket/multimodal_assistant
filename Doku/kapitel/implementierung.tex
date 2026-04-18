@@ -1,0 +1,87 @@
+\chapter{Praktische Umsetzung: Implementierung}
+\label{sec:implementierung}
+
+\section{Einleitung}
+In diesem Kapitel wird die technische Umsetzung des \textit{multimodalen Sprach-Assistenten} beschrieben. Der Fokus liegt auf der Integration der einzelnen Komponenten der KI-Pipeline, bestehend aus Speech-to-Text, Natural Language Processing sowie der visuellen Ausgabe der analysierten Inhalte.
+
+Ziel der Implementierung ist die Realisierung eines durchgängigen Systems, das gesprochene Sprache verarbeitet, strukturiert analysiert und in visuelle Informationen überführt.
+
+\section{Workflow der Implementierung}
+Die Entwicklung erfolgte modular entlang der einzelnen Stufen der KI-Pipeline:
+
+\begin{enumerate}
+    \item \textbf{Audioeingabe:} Aufnahme oder Upload von Sprachdaten über die Benutzeroberfläche (Streamlit).
+    
+    \item \textbf{Speech-to-Text Verarbeitung:} Umwandlung der Audiodaten in Text mittels \textbf{OpenAI Whisper}.
+    
+    \item \textbf{NLP-Verarbeitung:} Analyse des transkribierten Textes mit \textbf{spaCy}, inklusive Tokenisierung und Part-of-Speech Tagging.
+    
+    \item \textbf{Informationsextraktion:} Identifikation relevanter sprachlicher Elemente, insbesondere Verben und Nomen.
+    
+    \item \textbf{Visuelle Ausgabe:} Nutzung extrahierter Nomen als Suchbegriffe für eine Bilddatenbank (z.\,B. Unsplash API).
+    
+    \item \textbf{UI-Darstellung:} Visualisierung der Ergebnisse innerhalb einer Streamlit-Webanwendung.
+\end{enumerate}
+
+\section{Integration der Systemkomponenten}
+
+\subsection{Speech-to-Text Modul}
+Das Speech-to-Text Modul basiert auf dem Whisper-Modell, welches Audiosignale in Textsequenzen umwandelt. Die Implementierung erfolgt so, dass sowohl Audio-Dateien als auch potenziell Live-Eingaben verarbeitet werden können.
+
+\subsection{NLP-Analyse Pipeline}
+Die Verarbeitung des Textes erfolgt über spaCy. Dabei wird der Text zunächst tokenisiert und anschließend grammatikalisch analysiert.
+
+Die wichtigsten Ergebnisse sind:
+\begin{itemize}
+    \item Identifikation von Verben (Handlungen)
+    \item Extraktion von Nomen (Objekte)
+    \item Strukturierung des Satzes in linguistische Einheiten
+\end{itemize}
+
+\subsection{Informationsextraktion und Mapping}
+Die extrahierten Nomen werden als semantische Schlüsselbegriffe genutzt. Diese werden in Suchanfragen transformiert, um passende visuelle Inhalte zu finden.
+
+Dieser Schritt stellt eine einfache Form der semantischen Abbildung zwischen Sprache und Bild dar.
+
+\subsection{Benutzeroberfläche (Streamlit)}
+Die gesamte Interaktion erfolgt über eine Streamlit-Webanwendung. Diese übernimmt:
+
+\begin{itemize}
+    \item Texteingabe und Audio-Upload
+    \item Darstellung der NLP-Ergebnisse
+    \item Visualisierung der markierten Verben im Text
+    \item Anzeige der generierten bzw. abgerufenen Bilder
+\end{itemize}
+
+\section{Praktische Umsetzungsschritte}
+Die Implementierung wurde in einzelne Python-Module unterteilt:
+
+\begin{itemize}
+    \item \texttt{speech\_to\_text.py}: Verarbeitung von Audioeingaben mit Whisper
+    \item \texttt{nlp\_analysis.py}: Textanalyse mit spaCy (Tokenisierung, POS-Tagging)
+    \item \texttt{image\_generator.py}: Generierung von Bild-URLs basierend auf Nomen
+    \item \texttt{app.py}: Streamlit-Frontend und Orchestrierung der Pipeline
+\end{itemize}
+
+\section{Besondere Herausforderungen und Lösungen}
+
+\begin{itemize}
+    \item \textbf{Modellabhängigkeiten:} Die Integration von Whisper erforderte eine stabile Python-Umgebung mit kompatiblen Versionen von NumPy und PyTorch.
+    
+    \item \textbf{Audioverarbeitung:} Unterschiedliche Audioformate wurden durch temporäre Konvertierung in ein einheitliches Format gelöst.
+    
+    \item \textbf{Semantische Genauigkeit:} Die Qualität der Bildzuordnung hängt stark von der Auswahl relevanter Nomen ab, weshalb eine Filterung der Token implementiert wurde.
+\end{itemize}
+
+\section{Testing und Qualitätssicherung}
+Die Qualitätssicherung erfolgte durch manuelle und funktionale Tests der Pipeline:
+
+\begin{itemize}
+    \item Test verschiedener Sprachinputs (einfach, komplex, mehrsatzig)
+    \item Validierung der korrekten POS-Erkennung durch spaCy
+    \item Überprüfung der Bildzuordnung anhand semantischer Konsistenz
+    \item UI-Tests innerhalb der Streamlit-Anwendung
+\end{itemize}
+
+\section{Zusammenfassung}
+Die Implementierung zeigt die erfolgreiche Realisierung einer modularen KI-Pipeline. Durch die klare Trennung der einzelnen Verarbeitungsschritte konnte ein flexibles und erweiterbares System geschaffen werden, das Spracheingaben in strukturierte und visuelle Informationen überführt.

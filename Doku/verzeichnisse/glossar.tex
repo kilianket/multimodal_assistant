@@ -1,0 +1,62 @@
+%% =================================================================
+%% verzeichnisse/glossar.tex
+%% =================================================================
+
+\newglossaryentry{crossplatform}{%
+  name={Cross-Platform},
+  description={Software-Entwicklungsansatz, bei dem Anwendungen mit einer gemeinsamen Codebasis auf mehreren Betriebssystemen (z. B. Android und iOS) ausführbar sind, hier umgesetzt mit Flutter.}
+}
+
+\newglossaryentry{speech2text}{%
+  name={Speech-to-Text},
+  description={Verfahren zur automatischen Umwandlung gesprochener Sprache in geschriebenen Text, im Projekt realisiert durch das Whisper-Modell.}
+}
+
+\newglossaryentry{nlp}{%
+  name={Natural Language Processing},
+  description={Teilgebiet der künstlichen Intelligenz zur Verarbeitung und Analyse natürlicher Sprache, z. B. für Tokenisierung, POS-Tagging und Informationsextraktion mit spaCy.}
+}
+
+\newglossaryentry{bootloader}{%
+  name={Bootstrapping / Pipeline-Start},
+  description={Initialisierung der Verarbeitungskette im System, bei der Audioaufnahme, Transkription und Analyse sequenziell gestartet werden.}
+}
+
+\newglossaryentry{relational}{%
+  name={Relationales Modell},
+  description={Datenmodell, bei dem Informationen strukturiert in Tabellen gespeichert und über Primär- und Fremdschlüssel (z. B. in SQL-Datenbanken) miteinander verknüpft werden.}
+}
+
+\newglossaryentry{offlinefirst}{%
+  name={Offline-First},
+  description={Architekturansatz, bei dem die Anwendung vollständig lokal funktionsfähig ist und Daten bei bestehender Verbindung synchronisiert werden.}
+}
+
+\newglossaryentry{widget}{%
+  name={Widget},
+  description={Zentrale UI-Baueinheit in Flutter. Jede visuelle oder interaktive Komponente der Streamlit- bzw. Flutter-Oberfläche basiert auf Widgets.}
+}
+
+\newglossaryentry{pipeline}{%
+  name={KI-Pipeline},
+  description={Modulare Verarbeitungskette aus Speech-to-Text, NLP-Analyse und visueller Ausgabe zur schrittweisen Transformation von Sprache in strukturierte Informationen.}
+}
+
+% =========================================================
+% Dual Entries (Akronyme + Definitionen)
+% =========================================================
+
+\newdualentry{api}
+{API}
+{Application Programming Interface}
+{Programmierschnittstelle zur standardisierten Kommunikation zwischen Systemkomponenten, insbesondere für die Anbindung externer Dienste und Bilddatenquellen (z. B. Unsplash API).}
+
+\newdualentry{json}
+{JSON}
+{JavaScript Object Notation}
+{Textbasiertes Datenformat zur strukturierten Übertragung von Informationen zwischen Client (Streamlit-App) und externen oder lokalen Services.}
+
+\newdualentry{stt}
+{STT}
+{Speech-to-Text}
+{Automatische Umwandlung von Audioeingaben in Textdaten mittels Whisper-Modell als erster Schritt der KI-Pipeline.}

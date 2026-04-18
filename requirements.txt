@@ -1,0 +1,7 @@
+streamlit
+spacy
+openai-whisper
+torch
+ffmpeg-python
+
+# streamlit run app.py

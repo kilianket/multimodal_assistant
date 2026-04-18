@@ -1,0 +1,144 @@
+\documentclass{beamer}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\title{Multimodaler Sprach-Assistent}
+\subtitle{KI-basierte Sprach-zu-Bild Pipeline}
+\author{Ruba Shehadeh, Godfrey Uchechukwu Atulegwu, Kilian Ketelhohn}
+\date{\today}
+
+\begin{document}
+
+% Titelfolie
+\frame{\titlepage}
+
+% ----------------------------
+\begin{frame}{Projektidee}
+\begin{itemize}
+    \item Entwicklung eines intelligenten Sprach-Assistenten
+    \item Verarbeitung gesprochener Sprache in Echtzeit
+    \item Transformation von Sprache zu strukturierter Information
+    \item Visualisierung durch generierte oder gesuchte Bilder
+\end{itemize}
+\end{frame}
+
+% ----------------------------
+\begin{frame}{Ziel des Projekts}
+\begin{itemize}
+    \item Verbindung von:
+    \begin{itemize}
+        \item Spracherkennung (Speech-to-Text)
+        \item Natural Language Processing (NLP)
+        \item Informationsextraktion
+        \item Bildgenerierung / Bildsuche
+    \end{itemize}
+    \item Interaktive KI-Pipeline für Benutzer
+\end{itemize}
+\end{frame}
+
+% ----------------------------
+\begin{frame}{Systemarchitektur}
+\begin{itemize}
+    \item Mikrofon-Eingabe
+    \item Speech-to-Text (Whisper)
+    \item NLP Analyse (spaCy)
+    \item Extraktion von Verben und Nomen
+    \item Bildgenerierung (Unsplash API)
+    \item Darstellung im Streamlit Chat Interface
+\end{itemize}
+\end{frame}
+
+% ----------------------------
+\begin{frame}{Speech-to-Text}
+\begin{itemize}
+    \item Nutzung von OpenAI Whisper
+    \item Wandelt Audio in Text um
+    \item Unterstützt verschiedene Audioformate
+    \item Grundlage für weitere Verarbeitung
+\end{itemize}
+\end{frame}
+
+% ----------------------------
+\begin{frame}{Natural Language Processing}
+\begin{itemize}
+    \item Tokenisierung des Textes
+    \item Part-of-Speech Tagging
+    \item Identifikation von:
+    \begin{itemize}
+        \item Verben (Handlungen)
+        \item Nomen (Objekte)
+    \end{itemize}
+    \item Verwendung von spaCy
+\end{itemize}
+\end{frame}
+
+% ----------------------------
+\begin{frame}{Informationsextraktion}
+\begin{itemize}
+    \item Herausfiltern relevanter Begriffe
+    \item Fokus auf Nomen als Schlüsselbegriffe
+    \item Nutzung für Bildsuche oder KI-Generierung
+\end{itemize}
+\end{frame}
+
+% ----------------------------
+\begin{frame}{Bildgenerierung}
+\begin{itemize}
+    \item Nutzung von Unsplash API
+    \item Suchanfrage basiert auf extrahierten Nomen
+    \item Automatische Visualisierung des Textinhalts
+\end{itemize}
+\end{frame}
+
+% ----------------------------
+\begin{frame}{Frontend (Streamlit)}
+\begin{itemize}
+    \item Interaktive Web-Oberfläche
+    \item Upload von Audio oder Texteingabe
+    \item Darstellung von:
+    \begin{itemize}
+        \item Analyseergebnissen
+        \item Markierten Verben
+        \item Generierten Bildern
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+% ----------------------------
+\begin{frame}{Technologien}
+\begin{itemize}
+    \item Python
+    \item Whisper (Speech-to-Text)
+    \item spaCy (NLP)
+    \item Streamlit (UI)
+    \item Unsplash API (Bildsuche)
+\end{itemize}
+\end{frame}
+
+% ----------------------------
+\begin{frame}{Ergebnis}
+\begin{itemize}
+    \item Sprachinput wird in strukturierte Daten umgewandelt
+    \item Linguistische Analyse in Echtzeit
+    \item Visuelle Darstellung der Inhalte
+    \item Kombination mehrerer KI-Technologien
+\end{itemize}
+\end{frame}
+
+% ----------------------------
+\begin{frame}{Fazit}
+\begin{itemize}
+    \item Erfolgreiche Umsetzung einer multimodalen KI-Pipeline
+    \item Verbindung von Sprache, Text und Bild
+    \item Erweiterbar für zukünftige KI-Anwendungen
+\end{itemize}
+\end{frame}
+
+% ----------------------------
+\begin{frame}{Ende}
+\centering
+\Huge Fragen?
+\end{frame}
+
+\end{document}

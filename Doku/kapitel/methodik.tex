@@ -1,0 +1,61 @@
+\chapter{Methodik}
+\label{sec:methodik}
+
+\section{Vorgehensweise}
+Die Entwicklung des \textit{multimodalen Sprach-Assistenten} folgt einem modularen, ingenieurwissenschaftlich orientierten Ansatz zur Verarbeitung natürlicher Sprache. Ziel ist die Transformation unstrukturierter Sprachdaten in strukturierte und visuell interpretierbare Informationen.
+
+Die Vorgehensweise gliedert sich in folgende Phasen:
+
+\begin{enumerate}
+    \item \textbf{Anforderungsanalyse und Use-Case-Definition:}  
+    Analyse typischer Anwendungsszenarien von Sprach-KI-Systemen. Im Fokus steht die Frage, wie gesprochene Sprache in Echtzeit verarbeitet, analysiert und visuell dargestellt werden kann.
+
+    \item \textbf{Pipeline-Architektur (Modulares KI-System):}  
+    Entwurf einer klar strukturierten Verarbeitungskette bestehend aus Speech-to-Text, NLP-Analyse, Informationsextraktion und visueller Ausgabe. Die Architektur folgt dem Prinzip der modularen Austauschbarkeit einzelner Komponenten.
+
+    \item \textbf{Prototyping und UI-Entwicklung:}  
+    Implementierung einer interaktiven Weboberfläche mit Streamlit, welche Audio- und Texteingaben entgegennimmt und die Ergebnisse der KI-Pipeline in Echtzeit visualisiert.
+\end{enumerate}
+
+\section{Konzept der KI-Pipeline}
+Im Gegensatz zu monolithischen KI-Systemen basiert die Umsetzung auf einer \textbf{sequenziellen Verarbeitungspipeline}, bei der jeder Schritt klar definierte Aufgaben übernimmt.
+
+\subsection{Pipeline-Struktur}
+Die Architektur besteht aus folgenden aufeinander aufbauenden Komponenten:
+
+\begin{enumerate}
+    \item \textbf{Audio Input Layer:} Aufnahme oder Upload von Spracheingaben.
+    \item \textbf{Speech-to-Text Layer:} Transkription mittels OpenAI Whisper.
+    \item \textbf{NLP Layer:} Linguistische Analyse mit spaCy.
+    \item \textbf{Information Extraction Layer:} Extraktion von Verben und Nomen.
+    \item \textbf{Visualization Layer:} Semantische Abbildung auf Bilder.
+\end{enumerate}
+
+\subsection{Designentscheidungen der Pipeline}
+\begin{itemize}
+    \item \textbf{Modularität:} Jede Stufe der Pipeline ist unabhängig implementiert und kann einzeln ersetzt oder erweitert werden.
+    \item \textbf{Echtzeitfähigkeit:} Die Architektur ist darauf ausgelegt, Eingaben ohne komplexe Zwischenspeicherung zu verarbeiten.
+    \item \textbf{Erweiterbarkeit:} Neue Modelle (z.B. Embedding-basierte oder generative KI-Modelle) können leicht integriert werden.
+\end{itemize}
+
+\section{Datenverarbeitung und semantisches Mapping}
+Ein zentrales methodisches Konzept ist die Transformation von Sprache in semantische Schlüsselbegriffe.
+
+\subsection{Tokenisierung und linguistische Analyse}
+Der transkribierte Text wird mithilfe von spaCy in einzelne Tokens zerlegt und grammatikalisch annotiert (Part-of-Speech Tagging). Dadurch können strukturelle Elemente wie Verben und Nomen systematisch identifiziert werden.
+
+\subsection{Semantische Reduktion}
+Die extrahierten Nomen werden auf ihre semantische Relevanz reduziert, um als Suchbegriffe für die Bildgenerierung oder Bildsuche zu dienen. Dieser Prozess stellt eine vereinfachte Form des Semantic Mapping dar.
+
+\section{Systemarchitektur}
+Methodisch basiert das System auf einer klar getrennten Schichtenarchitektur:
+
+\begin{enumerate}
+    \item \textbf{Presentation Layer:} Streamlit Web-Interface
+    \item \textbf{Processing Layer:} Whisper + spaCy Pipeline
+    \item \textbf{Application Logic Layer:} Extraktion und Mapping-Logik
+    \item \textbf{Output Layer:} Textvisualisierung und Bilddarstellung
+\end{enumerate}
+
+\section{Zusammenfassung}
+Die gewählte Methodik kombiniert Konzepte aus der Sprachverarbeitung, der maschinellen Linguistik und der modularen Softwarearchitektur. Durch die konsequente Trennung der Verarbeitungsschritte entsteht ein flexibles und erweiterbares KI-System, das Sprache systematisch in strukturierte und visuelle Informationen überführt.

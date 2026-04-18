@@ -1,0 +1,32 @@
+# Virtual environments
+venv/
+whisper-env/
+.env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# large ML / model files
+*.pt
+*.pth
+*.bin
+*.dylib
+
+# logs
+*.log
+venv/
+whisper-env/
+__pycache__/
+*.pyc
+venv/
+whisper-env/
+__pycache__/
+*.pyc

@@ -1,0 +1,35 @@
+\chapter{Aufgabenstellung}
+\label{sec:aufgabenstellung}
+
+Die Verarbeitung gesprochener Sprache stellt eine zentrale Herausforderung moderner KI-Systeme dar, insbesondere wenn aus unstrukturierten Audioeingaben strukturierte und visuell interpretierbare Informationen erzeugt werden sollen. Klassische Systeme beschränken sich häufig auf reine Transkription, ohne die semantische Bedeutung der Inhalte weiter zu analysieren oder nutzbar zu machen.
+
+Im Rahmen dieser Arbeit wird daher ein multimodales KI-System entwickelt, das gesprochene Sprache nicht nur in Text umwandelt, sondern zusätzlich linguistisch analysiert und visuell aufbereitet.
+
+\section{Ziel der Arbeit}
+Ziel dieser Projektarbeit ist die Konzeption und Implementierung eines \textbf{multimodalen Sprach-Assistenten}. Dieser verarbeitet Spracheingaben über ein Mikrofon, wandelt diese mithilfe von \textbf{Speech-to-Text (Whisper)} in Text um und analysiert den Inhalt anschließend mit Methoden der \textbf{Natural Language Processing (spaCy)}.
+
+Die extrahierten Informationen werden genutzt, um sprachliche Inhalte strukturiert darzustellen und durch passende visuelle Elemente (Bilder) zu ergänzen. Dadurch entsteht eine durchgängige KI-Pipeline von Sprache über Textanalyse bis hin zur visuellen Repräsentation.
+
+\section{Konkrete Anforderungen und Teilaufgaben}
+Im Rahmen der Softwareentwicklung sind folgende Teilaufgaben umzusetzen:
+
+\begin{itemize}
+    \item \textbf{Spracherkennung:} Implementierung einer Speech-to-Text-Komponente auf Basis von \textbf{OpenAI Whisper}, welche gesprochene Sprache in Text umwandelt.
+
+    \item \textbf{NLP-Analyse:} Verarbeitung des transkribierten Textes mittels \textbf{spaCy}. Dabei erfolgt eine Tokenisierung sowie eine grammatikalische Analyse (Part-of-Speech Tagging).
+
+    \item \textbf{Informationsextraktion:} Identifikation zentraler sprachlicher Elemente, insbesondere \textbf{Verben (Handlungen)} und \textbf{Nomen (Objekte)}. Diese bilden die Grundlage für die weitere Verarbeitung.
+
+    \item \textbf{Visuelle Repräsentation:} Nutzung der extrahierten Nomen zur Abfrage einer Bildquelle (z.B. \textbf{Unsplash API}), um passende Bilder zur semantischen Darstellung des Inhalts bereitzustellen.
+
+    \item \textbf{Benutzeroberfläche:} Entwicklung einer interaktiven Web-Anwendung mit \textbf{Streamlit}, welche Texteingaben, Audio-Uploads, Analyseergebnisse sowie Bilder in einer übersichtlichen Oberfläche kombiniert.
+
+    \item \textbf{Textvisualisierung:} Hervorhebung grammatikalischer Strukturen im Text (z.B. farbliche Markierung von Verben) zur besseren visuellen Interpretation der Sprachdaten.
+\end{itemize}
+
+\section{Methodische Grundlage}
+Die technische Umsetzung basiert auf etablierten Verfahren der künstlichen Intelligenz und Sprachverarbeitung. Für die Spracherkennung wird das Whisper-Modell verwendet, welches robuste Ergebnisse bei unterschiedlichen Audioqualitäten liefert.
+
+Die linguistische Analyse erfolgt mit spaCy, einem industriell etablierten NLP-Framework. Die Bildzuordnung basiert auf einer semantischen Reduktion der erkannten Nomen und deren Verwendung als Suchbegriffe in einer Bilddatenbank.
+
+Das Gesamtsystem folgt dem Paradigma einer modularen KI-Pipeline, bei der einzelne Verarbeitungsschritte klar voneinander getrennt und unabhängig austauschbar sind.

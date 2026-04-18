@@ -1,0 +1,8 @@
+pdflatex multimodal_assistant
+
+
+makeglossaries multimodal_assistant
+makeindex multimodal_assistant
+bibtex multimodal_assistant
+makeglossaries multimodal_assistant
+makeindex multimodal_assistant

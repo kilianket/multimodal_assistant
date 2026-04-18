@@ -1,0 +1,39 @@
+\chapter{Fazit und Ausblick}
+\label{sec:fazit}
+
+Die vorliegende Arbeit zeigt, wie moderne KI-Technologien zur Verarbeitung gesprochener Sprache in einer durchgängigen multimodalen Pipeline kombiniert werden können. Der entwickelte \textit{multimodale Sprach-Assistent} transformiert Spracheingaben in strukturierte Textinformationen und erweitert diese um eine visuelle Repräsentation.
+
+\section{Zusammenfassung der Ergebnisse}
+Im Rahmen des Projekts wurden folgende zentrale Ziele erreicht:
+
+\begin{itemize}
+    \item \textbf{Speech-to-Text Verarbeitung:} Durch den Einsatz von OpenAI Whisper wurde eine zuverlässige Umwandlung gesprochener Sprache in Text realisiert, die als Grundlage der weiteren Verarbeitung dient.
+
+    \item \textbf{Linguistische Analyse:} Mithilfe von spaCy konnte der transkribierte Text erfolgreich tokenisiert und grammatikalisch analysiert werden. Insbesondere die Identifikation von Verben und Nomen ermöglicht eine strukturierte Interpretation der Inhalte.
+
+    \item \textbf{Informationsextraktion und Visualisierung:} Die extrahierten Nomen werden zur semantischen Bildsuche genutzt und ermöglichen die visuelle Darstellung sprachlicher Inhalte über externe Bildquellen.
+
+    \item \textbf{Benutzeroberfläche:} Die Umsetzung mit Streamlit ermöglicht eine interaktive Nutzung des Systems, bei der Spracheingaben, Analyseergebnisse und Bilder in Echtzeit dargestellt werden.
+
+    \item \textbf{Pipeline-Architektur:} Die modulare Struktur der Anwendung erlaubt eine klare Trennung der Verarbeitungsschritte von Audioeingabe bis zur visuellen Ausgabe.
+\end{itemize}
+
+\section{Persönliches Resümee}
+Die Entwicklung des Systems ermöglichte tiefere Einblicke in die praktische Anwendung moderner KI-Technologien. Besonders die Kombination aus Spracherkennung, NLP und visueller Repräsentation verdeutlicht die Komplexität multimodaler Systeme.
+
+Herausfordernd war insbesondere die Abstimmung der einzelnen Module innerhalb einer stabilen End-to-End-Pipeline sowie die effiziente Verarbeitung der Daten in einer interaktiven Webanwendung.
+
+\section{Ausblick}
+Trotz des erreichten Funktionsumfangs bietet das System zahlreiche Erweiterungsmöglichkeiten:
+
+\begin{itemize}
+    \item \textbf{Integration generativer KI-Modelle:} Anstelle einfacher Bildsuche könnte ein Bildgenerierungsmodell (z.\,B. DALL·E) eingesetzt werden, um vollständig neue visuelle Inhalte zu erzeugen.
+
+    \item \textbf{Erweiterte semantische Analyse:} Der Einsatz von Embedding-Modellen könnte die semantische Interpretation von Texten deutlich verbessern und abstrakte Begriffe besser abbilden.
+
+    \item \textbf{Echtzeit-Sprachverarbeitung:} Eine Live-Mikrofonverarbeitung würde eine noch natürlichere Interaktion mit dem System ermöglichen.
+
+    \item \textbf{Erweiterte KI-Interaktion:} Die Integration eines dialogbasierten LLM könnte das System zu einem vollständigen intelligenten Assistenten erweitern.
+\end{itemize}
+
+Abschließend lässt sich festhalten, dass der entwickelte multimodale Sprach-Assistent eine funktionale KI-Pipeline darstellt, die Sprache erfolgreich in strukturierte und visuell interpretierbare Informationen überführt und damit eine solide Grundlage für zukünftige multimodale KI-Anwendungen bildet.

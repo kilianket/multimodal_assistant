@@ -1,0 +1,83 @@
+\chapter{Grundlagen}
+\label{sec:grundlagen}
+
+\section{Multimodale KI-Systeme}
+Multimodale KI-Systeme kombinieren verschiedene Arten der Datenverarbeitung, beispielsweise Sprache, Text und visuelle Informationen. Ziel solcher Systeme ist es, Informationen aus einer Eingabemodalität (z.B. gesprochene Sprache) in eine andere Modalität (z.B. strukturierter Text oder Bild) zu überführen.
+
+Im Rahmen dieser Arbeit wird eine KI-Pipeline entwickelt, die gesprochene Sprache verarbeitet, linguistisch analysiert und anschließend visuell repräsentiert.
+
+\section{Speech-to-Text mit Whisper}
+Die Grundlage des Systems bildet die automatische Spracherkennung (Speech-to-Text).
+
+\textbf{OpenAI Whisper} ist ein neuronales Netzwerkmodell zur robusten Transkription gesprochener Sprache in Text. Es basiert auf einem Encoder-Decoder-Transformer-Ansatz und wurde auf großen Mengen multilingualer Audiodaten trainiert.
+
+Wesentliche Eigenschaften:
+\begin{itemize}
+    \item Hohe Genauigkeit bei verschiedenen Akzenten und Sprachstilen
+    \item Unterstützung mehrerer Sprachen, darunter Deutsch
+    \item Fähigkeit zur Verarbeitung von verrauschten Audioaufnahmen
+\end{itemize}
+
+\section{Natural Language Processing (NLP)}
+Natural Language Processing (NLP) bezeichnet die Verarbeitung und Analyse natürlicher Sprache durch Computer.
+
+Im Projekt wird hierfür das Framework \textbf{spaCy} verwendet.
+
+\subsection{Tokenisierung}
+Die Tokenisierung beschreibt die Zerlegung eines Satzes in einzelne Einheiten (Tokens), meist Wörter oder Satzzeichen. Diese Strukturierung ist die Grundlage für alle weiteren Analyseprozesse.
+
+\subsection{Part-of-Speech Tagging}
+Beim Part-of-Speech (POS) Tagging werden jedem Token grammatikalische Kategorien zugewiesen, beispielsweise:
+\begin{itemize}
+    \item \textbf{VERB} (Verben / Handlungen)
+    \item \textbf{NOUN} (Nomen / Objekte)
+\end{itemize}
+
+Diese Informationen sind entscheidend für die spätere Informationsextraktion.
+
+\section{Informationsextraktion}
+Die Informationsextraktion beschreibt den Prozess, relevante Inhalte aus unstrukturiertem Text zu gewinnen.
+
+Im Kontext dieses Projekts werden insbesondere:
+\begin{itemize}
+    \item Verben zur Analyse von Handlungen
+    \item Nomen zur Beschreibung von Objekten und Entitäten
+\end{itemize}
+
+extrahiert und weiterverarbeitet.
+
+\section{Semantische Bildzuordnung}
+Ein zentrales Konzept des Systems ist die semantische Verknüpfung von Sprache und visuellen Inhalten.
+
+Dabei werden extrahierte Nomen als Suchbegriffe verwendet, um passende Bilder aus einer Bilddatenbank (z.B. Unsplash API) abzurufen.
+
+Dieser Ansatz stellt eine einfache Form der semantischen Abbildung dar, bei der sprachliche Konzepte in visuelle Repräsentationen überführt werden.
+
+\section{Streamlit als Benutzeroberfläche}
+\textbf{Streamlit} ist ein Python-Framework zur schnellen Entwicklung interaktiver Webanwendungen für Daten- und KI-Projekte.
+
+Im Projekt übernimmt Streamlit folgende Aufgaben:
+\begin{itemize}
+    \item Darstellung der Texteingabe und Audioeingabe
+    \item Visualisierung der NLP-Ergebnisse
+    \item Anzeige generierter oder abgerufener Bilder
+\end{itemize}
+
+\section{Architektur von KI-Pipelines}
+Die Anwendung folgt dem Prinzip einer modularen KI-Pipeline.
+
+Diese besteht aus klar getrennten Verarbeitungsschritten:
+\begin{enumerate}
+    \item Audioeingabe (Mikrofon)
+    \item Speech-to-Text (Whisper)
+    \item Textanalyse (spaCy)
+    \item Informationsextraktion
+    \item Visuelle Ausgabe (Bildsuche)
+\end{enumerate}
+
+Diese modulare Struktur ermöglicht eine einfache Erweiterbarkeit und Austauschbarkeit einzelner Komponenten.
+
+\section{Zusammenfassung für Fachfremde}
+Das System kann vereinfacht als ein intelligenter Sprach-zu-Bild-Übersetzer verstanden werden. Gesprochene Sprache wird zunächst in Text umgewandelt, anschließend analysiert und schließlich in passende Bilder übersetzt.
+
+Dadurch wird Sprache nicht nur lesbar, sondern auch visuell erfahrbar gemacht.

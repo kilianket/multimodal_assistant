@@ -1,0 +1,79 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Vortragsskript – Multimodaler Sprach-Assistent}
+\author{Ruba Shehadeh, Godfrey Uchechukwu Atulegwu, Kilian Ketelhohn}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Einleitung}
+Guten Tag, ich stelle heute meinen multimodalen Sprach-Assistenten vor. 
+Dieses Projekt beschäftigt sich mit der Verarbeitung gesprochener Sprache und deren Umwandlung in strukturierte Informationen und visuelle Ergebnisse.
+
+\section*{Projektidee}
+Die Grundidee meines Projekts ist es, Sprache nicht nur als Text darzustellen, sondern sie aktiv zu analysieren und visuell greifbar zu machen. 
+
+Dafür wird gesprochene Sprache aufgenommen, in Text umgewandelt und anschließend mithilfe von KI-Technologien weiterverarbeitet.
+
+\section*{Ziel des Projekts}
+Das Ziel ist die Kombination mehrerer KI-Bereiche in einem System: Speech-to-Text, Natural Language Processing und Bildgenerierung.
+
+Am Ende entsteht eine Pipeline, die Sprache in strukturierte Daten und anschließend in Bilder übersetzt.
+
+\section*{Systemarchitektur}
+Das System besteht aus mehreren Modulen. Zuerst wird Sprache über ein Mikrofon aufgenommen und durch Whisper in Text umgewandelt.
+
+Danach analysiert spaCy den Text linguistisch und erkennt Wortarten wie Verben und Nomen.
+
+Diese Informationen werden weiterverwendet, um passende Bilder zu finden oder zu generieren, die im Streamlit Interface angezeigt werden.
+
+\section*{Speech-to-Text}
+Für die Spracherkennung wird OpenAI Whisper verwendet. 
+Whisper wandelt gesprochene Sprache in Text um und bildet die Grundlage für alle weiteren Verarbeitungsschritte.
+
+\section*{Natural Language Processing}
+Im nächsten Schritt wird der Text mit spaCy analysiert.
+
+Dabei wird der Satz in einzelne Wörter zerlegt (Tokenisierung) und grammatikalisch untersucht. Besonders wichtig sind Verben und Nomen.
+
+\section*{Informationsextraktion}
+Aus der Analyse werden gezielt relevante Informationen extrahiert.
+
+Die Nomen dienen dabei als Schlüsselbegriffe für die spätere Bildsuche oder Bildgenerierung.
+
+\section*{Bildgenerierung}
+Die extrahierten Begriffe werden genutzt, um passende Bilder zu finden.
+
+Dafür wird die Unsplash API verwendet, die Bilder anhand von Suchbegriffen liefert.
+
+So entsteht eine visuelle Darstellung des gesprochenen Inhalts.
+
+\section*{Frontend}
+Die Benutzeroberfläche wurde mit Streamlit umgesetzt.
+
+Der Nutzer kann Text eingeben oder Audio hochladen. Anschließend werden Analyseergebnisse, markierte Verben und Bilder angezeigt.
+
+\section*{Technologien}
+Verwendet wurden Python, Whisper für Spracherkennung, spaCy für NLP, Streamlit für die Oberfläche und die Unsplash API.
+
+\section*{Ergebnis}
+Das Ergebnis ist eine KI-Pipeline, die Sprache in strukturierte Informationen und Bilder umwandelt.
+
+Sprache wird damit nicht nur verstanden, sondern auch visuell interpretiert.
+
+\section*{Fazit}
+Das Projekt zeigt, wie verschiedene KI-Technologien kombiniert werden können, um ein interaktives System zu erstellen.
+
+Es verbindet Sprachverarbeitung, Textanalyse und Bildgenerierung in einer Anwendung.
+
+\section*{Ende}
+Vielen Dank für die Aufmerksamkeit. Ich beantworte jetzt gerne Fragen.
+
+\end{document}
