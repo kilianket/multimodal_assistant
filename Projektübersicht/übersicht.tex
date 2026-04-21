@@ -1,0 +1,52 @@
+\documentclass[a4paper,12pt]{article}
+
+% =========================
+% Pakete
+% =========================
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{setspace}
+\onehalfspacing
+
+% =========================
+% Dokument
+% =========================
+\begin{document}
+
+\title{Projektübersicht: Multimodaler Sprach-Assistent}
+\author{}
+\date{}
+\maketitle
+
+\section{Projektbeschreibung}
+
+Das Ziel des Projekts ist die Entwicklung eines intelligenten, Python-basierten Chatbots, der als interaktive Schnittstelle zwischen Mensch und Maschine dient. Das System verarbeitet gesprochene Sprache und kombiniert dabei Methoden der Spracherkennung, natürlichen Sprachverarbeitung und visuellen Informationsdarstellung.
+
+\section{Spracherkennung und Textverarbeitung}
+
+Zunächst nimmt das System gesprochene Sprache über ein Mikrofon auf und wandelt diese mithilfe von Speech-to-Text-Technologien in geschriebenen Text um. Dieser transkribierte Text bildet die Grundlage für die weitere Verarbeitung.
+
+Im nächsten Schritt erfolgt eine linguistische Analyse des Textes. Dabei wird der Satz in einzelne Bestandteile zerlegt (Tokenisierung). Anschließend werden grammatikalische Wortarten bestimmt (Part-of-Speech Tagging), wobei insbesondere Verben und Nomen im Fokus stehen.
+
+\section{Informationsextraktion}
+
+Nach der Analyse werden relevante Informationen aus dem Text extrahiert. Insbesondere werden Verben und konkrete Objekte (Nomen) identifiziert. Diese strukturierten Informationen dienen als Grundlage für die weitere Verarbeitung und Visualisierung.
+
+\section{Visuelle Darstellung}
+
+Die extrahierten Informationen werden genutzt, um eine visuelle Ausgabe zu erzeugen. Dabei gibt es zwei zentrale Funktionen:
+\begin{itemize}
+    \item \textbf{Textuelle Visualisierung:} Verben werden im ursprünglichen Text hervorgehoben (z.B. farblich markiert), um sprachliche Strukturen sichtbar zu machen.
+    \item \textbf{Bildgenerierung:} Erkannte Objekte werden genutzt, um passende Bilder aus einer Bilddatenbank abzurufen oder mithilfe generativer KI zu erzeugen.
+\end{itemize}
+
+\section{Ziel des Projekts}
+
+Das Projekt verfolgt das Ziel, verschiedene Kernbereiche der künstlichen Intelligenz in einem interaktiven System zu vereinen. Dazu gehören insbesondere Spracherkennung, Textanalyse und visuelle Darstellung.
+
+Der entwickelte Chatbot dient als intuitive Benutzeroberfläche, die gesprochene Sprache in strukturierte und visuell aufbereitete Informationen transformiert. Dadurch wird die Abstraktion der Sprache für den Nutzer greifbar und verständlich gemacht.
+
+\end{document}
