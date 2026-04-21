@@ -3,20 +3,27 @@
 \label{chap:einleitung}
 
 \subsection{Motivation}
-Die Installation des Betriebssystems macOS auf Hardware, die nicht von Apple Inc. stammt – ein Prozess, der in der IT-Community als \textit{Hackintoshing} bekannt ist – stellt eine komplexe technische Herausforderung dar. Besonders bei Notebooks, wie den verbreiteten Modellen der Lenovo ThinkPad-Serie, erfordert die Emulation des Apple-spezifischen EFI-Umfelds mittels Bootloadern wie \textbf{OpenCore} eine präzise Abstimmung von Hardware-Informationen, BIOS-Einstellungen und Kernel-Erweiterungen (Kexts).
+Die Interaktion zwischen Mensch und Maschine hat sich in den letzten Jahren grundlegend gewandelt. Klassische Eingabemethoden wie Tastatur und Maus werden zunehmend durch natürlichere Kommunikationsformen ergänzt. Insbesondere die Verarbeitung gesprochener Sprache ermöglicht eine intuitive und barrierearme Nutzung digitaler Systeme.
 
-Häufig müssen Nutzer während der Installation oder bei Systemaktualisierungen schnell auf spezifische Konfigurationsdaten zugreifen, während das Zielgerät selbst nicht einsatzbereit ist. Hier setzt die \textbf{Hackintosh Companion App} an: Sie dient als mobiles Begleitwerkzeug und zentrale Wissensdatenbank, um Konfigurationen geräteunabhängig zu verwalten und Hardware-Spezifikationen interaktiv zu visualisieren.
+Moderne Anwendungen erfordern jedoch nicht nur die reine Umwandlung von Sprache in Text, sondern die Fähigkeit, Informationen kontextuell zu verstehen, zu strukturieren und visuell aufzubereiten. Genau hier setzt das Konzept eines \textit{multimodalen Sprachassistenten} an: Durch die Kombination verschiedener Modalitäten – wie Sprache, Text und visuelle Darstellung – entsteht ein interaktives System, das komplexe Inhalte verständlich und nutzerfreundlich vermittelt.
+
+Die Herausforderung besteht darin, diese unterschiedlichen Technologien – darunter Speech-to-Text, Natural Language Processing und visuelle Informationsdarstellung – in einem integrierten System zu vereinen. Ziel ist es, eine Anwendung zu entwickeln, die nicht nur Sprache erkennt, sondern daraus aktiv verwertbare Informationen generiert und diese anschaulich präsentiert.
 
 \subsection{Zielsetzung des Projekts}
-Das primäre Ziel dieser Arbeit ist die Entwicklung einer funktionalen, visuell ansprechenden Cross-Plattform-Anwendung unter Verwendung des \textbf{Flutter-Frameworks}. Die App soll nicht nur als einfache Datenbank fungieren, sondern durch moderne Technologien den Workflow eines Systemadministrators oder Hackintosh-Enthusiasten optimieren. 
+Das Ziel dieser Arbeit ist die Konzeption und Entwicklung eines intelligenten, multimodalen Sprachassistenten auf Basis moderner Softwaretechnologien. Das System soll als interaktive Schnittstelle zwischen Nutzer und digitalen Inhalten fungieren und dabei verschiedene Eingabe- und Ausgabekanäle kombinieren.
 
-Zu den Kernzielen gehören:
+Im Mittelpunkt steht die Entwicklung eines prototypischen Systems, das gesprochene Sprache in Echtzeit verarbeitet, analysiert und in strukturierte sowie visuelle Informationen überführt. Dabei werden verschiedene Komponenten zu einer durchgängigen Verarbeitungskette verbunden.
+
+Zu den zentralen Zielen gehören:
 \begin{itemize}
-    \item \textbf{Datenmanagement:} Implementierung einer relationalen Datenbankstruktur mit SQLite zur Speicherung komplexer Hardware-Profile.
-    \item \textbf{Synchronisation:} Gewährleistung der Datenverfügbarkeit durch einen Offline-First-Ansatz und REST-API-Integration.
-    \item \textbf{Benutzererlebnis (UX):} Einsatz von Computergrafiken und 3D-Modellen zur intuitiven Hardware-Identifikation sowie die Simulation technischer Boot-Prozesse durch Animationen.
-    \item \textbf{Sensorintegration:} Nutzung der mobilen Kamera zur Erfassung von Konfigurationsdaten via QR-Code.
+\item \textbf{Sprachverarbeitung:} Implementierung einer Speech-to-Text-Pipeline zur Umwandlung gesprochener Sprache in Textdaten.
+\item \textbf{Sprachverständnis:} Einsatz von Natural Language Processing zur Extraktion relevanter Informationen und semantischer Strukturen.
+\item \textbf{Datenverarbeitung:} Transformation der extrahierten Inhalte in strukturierte Datenformate zur Weiterverarbeitung.
+\item \textbf{Visualisierung:} Darstellung der gewonnenen Informationen in Form von interaktiven und grafischen Elementen.
+\item \textbf{Systemintegration:} Zusammenführung aller Komponenten in einer webbasierten Anwendung mit intuitiver Benutzeroberfläche.
 \end{itemize}
 
 \subsection{Struktur der Dokumentation}
-Die vorliegende Dokumentation beschreibt den vollständigen Entwicklungsprozess – von der konzeptionellen Planung über das Datenbankdesign und die Implementierung technischer Highlights bis hin zur Bereitstellung der finalen Android-Applikation.
+Die vorliegende Arbeit beschreibt den vollständigen Entwicklungsprozess des multimodalen Sprachassistenten. Beginnend mit den theoretischen Grundlagen der Sprachverarbeitung und Datenanalyse werden anschließend die methodischen Ansätze sowie die Systemarchitektur erläutert.
+
+Darauf aufbauend folgt die detaillierte Beschreibung der Implementierung, einschließlich der eingesetzten Technologien und zentralen Funktionen des Systems. Abschließend werden die Ergebnisse evaluiert und mögliche Erweiterungen sowie zukünftige Entwicklungsperspektiven diskutiert.
